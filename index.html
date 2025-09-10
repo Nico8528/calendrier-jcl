@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Calendrier JCL</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/icalendar@6.1.15/index.global.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    #calendar { max-width: 1100px; margin: auto; }
+  </style>
+</head>
+<body>
+  <h1>Calendrier du Judo Club Lumière</h1>
+  <div id="calendar"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        firstDay: 1,
+        locale: 'fr',
+        eventSources: [
+          { url: 'https://calendar.google.com/calendar/ical/57aa89c1367a310dbdb5b0ef07a9b87b9cdf73dec60671ba04c77c3371b91cf6%40group.calendar.google.com/public/basic.ics', color: '#4285F4', textColor: '#fff' }, // Juniors - Séniors
+          { url: 'https://calendar.google.com/calendar/ical/562744d85d7ea8516dc265b3c50fe8cc1d43e378d1ce31adf4e493f302e88f5e%40group.calendar.google.com/public/basic.ics', color: '#34A853', textColor: '#fff' }, // Benjamins
+          { url: 'https://calendar.google.com/calendar/ical/22cebaa64fed25384604b5be4d284c09227d3b001f24a2c1a8452e31d66d2064%40group.calendar.google.com/public/basic.ics', color: '#EA4335', textColor: '#fff' }, // Cadets
+          { url: 'https://calendar.google.com/calendar/ical/7d806777754cbe3b3251619826b1738488b3f1ef37aee79c51f69b3bfb95385e%40group.calendar.google.com/public/basic.ics', color: '#FBBC05', textColor: '#000' }, // Minimes
+          { url: 'https://calendar.google.com/calendar/ical/440bbb5f295c76cf52af27573742b0dc0b3da9a99f4a3a3e176f0128d8167f8b%40group.calendar.google.com/public/basic.ics', color: '#9C27B0', textColor: '#fff' }, // Poussins - Pré-poussins
+          { url: 'https://calendar.google.com/calendar/ical/f27e664cf08b858cd8e3c70de0f8969827355e903715e0b82c127a066c0c60a9%40group.calendar.google.com/public/basic.ics', color: '#F4C00C', textColor: '#000' } // Évènements JCL
+        ]
+      });
+      calendar.render();
+    });
+  </script>
+</body>
+</html>
